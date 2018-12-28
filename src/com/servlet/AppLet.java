@@ -24,14 +24,16 @@ public class AppLet extends HttpServlet {
         //time = new String(time.getBytes("ISO-8859-1"), "UTF-8");
         String location = request.getParameter("location");
         //location = new String(location.getBytes("ISO-8859-1"), "UTF-8");
+        String netType = request.getParameter("netType");
+        String netmessage = request.getParameter("netmessage");
         String appmessage = request.getParameter("appmessage");
-        System.out.println(user + "--" + time +"--"+location+"--" + appmessage);
+        System.out.println(user + "--" + time +"--"+location+"--" +netType+"--"+netmessage+"--"+ appmessage);
 
         // 新建服务对象
         Service serv = new Service();
        
         // 验证处理
-        boolean flag = serv.appmessageget(user,time,location,appmessage);
+        boolean flag = serv.appmessageget(user,time,location,netType,netmessage,appmessage);
         System.out.println(flag);
         if (flag) {
             System.out.print("Success\n");
@@ -60,6 +62,7 @@ public class AppLet extends HttpServlet {
         out.print("flag" + flag);
         out.flush();
         out.close();
+        System.out.println("flag="+flag);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -44,10 +44,10 @@ public class Service {
         sql.closeDB();
         return false;
         }
-    public Boolean appmessageget(String user,String time,String location,String appmessage) {
+    public Boolean appmessageget(String user,String time,String location,String netType,String netmessage,String appmessage) {
 
 
-        String Sql = "insert into appmessage values(null,'"+user+"','"+time+"','"+location+"','" + appmessage+ "')";
+        String Sql = "insert into appmessage values(null,'"+user+"','"+time+"','"+location+"','"+netType+"','"+netmessage+"','" + appmessage+ "')";
 
 
         APPDBManager sql = APPDBManager.createInstance();
